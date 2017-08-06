@@ -1,29 +1,25 @@
-import javafx.util.Pair;
-
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Set;
 
 /**
  * Created by dell on 30/07/17.
  */
-public class RepeatingChar {
+public class UniqueChar {
 
     public static void main(String[] args) {
         String str = "thishasaduplicate";
         long start = System.currentTimeMillis();
-        int idx = findFirstDupIdx(str);
+        int idx = findFirstUniqueIdx(str);
         System.out.println("idx = " + idx + " in " + (System.currentTimeMillis()-start));
 
         start = System.currentTimeMillis();
-        int idx2 = findFirstDupIdx2(str);
+        int idx2 = findFirstUniqueIdx2(str);
         System.out.println("idx2 = " + idx2 + " in " + (System.currentTimeMillis()-start));
 
     }
 
 
-    private static int findFirstDupIdx2(String s) {
+    private static int findFirstUniqueIdx2(String s) {
 
         int[] countArr  = new int[256];
         for(int i =0 ; i< s.length(); i++){
@@ -39,7 +35,7 @@ public class RepeatingChar {
 
     static LinkedHashMap<Character,Integer> charsCount = new LinkedHashMap<>();
     static HashMap<Character,Integer> indexMap = new HashMap<>();
-    private static int findFirstDupIdx(String str) {
+    private static int findFirstUniqueIdx(String str) {
 
         for (int i = 0; i< str.length(); i++) {
             if(charsCount.putIfAbsent(str.charAt(i),1) !=null) {
