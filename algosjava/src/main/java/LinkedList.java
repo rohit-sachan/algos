@@ -70,9 +70,45 @@ public class LinkedList {
 
     }
 
-    private static Node findCycleNode(Node n1) {
-        return null;
+    private static Node findCycleNode(Node head) {
+        Node slow=head, fast=head;
+        while(head.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            System.out.println("slow = " + slow + " fast = " + fast);
+            if(slow.equals(fast)){
+                break;
+            }
+        }
+        System.out.println("Found Cycle");
+
+        //stop fast, and run only slow
+        int counter = 1;
+        slow = slow.next;
+        while (slow!=fast){
+            slow = slow.next;
+            counter++;
+        }
+        System.out.println("Size of Cycle = " + counter);
+
+        //find the junction
+        Node start = head;
+        Node loopOffset = runPointer(head,counter);
+        while(!start.equals(loopOffset)){
+            start=start.next;
+            loopOffset = loopOffset.next;
+        }
+
+        return start;
     }
+
+    private static Node runPointer(Node head, int counter) {
+        for (int i = 1; i <=counter ; i++) {
+            head=head.next;
+        }
+        return head;
+    }
+
 
     private static void doReversal() {
         Node n1 = new Node(1);
