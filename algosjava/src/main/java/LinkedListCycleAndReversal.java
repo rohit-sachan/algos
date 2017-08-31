@@ -4,7 +4,7 @@ import java.util.List;
 /**
  * Created by dell on 02/08/17.
  */
-public class LinkedList {
+public class LinkedListCycleAndReversal {
     static class Node {
         int val;
         Node next;
@@ -35,7 +35,8 @@ public class LinkedList {
         }
     }
     public static void main(String[] args) {
-//        doReversal();
+        doReversal();
+        System.out.println("\n");
         findCycle();
     }
 
@@ -63,6 +64,7 @@ public class LinkedList {
             visited.add(n);
             n=n.next;
         }
+        
 
         Node junctionNode = findCycleNode(n1);
 
