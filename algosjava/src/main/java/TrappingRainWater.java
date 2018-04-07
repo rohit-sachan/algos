@@ -35,7 +35,7 @@ public class TrappingRainWater {
 
     public static int getAmountOfWater(int[] walls){
 
-        int totalAmount=0, lowerBound, upperBound;
+        int totalAmount, lowerBound, upperBound;
         for (int wall : walls){
             if (wall >0){
 
