@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 /**
  * Created by Rohit on 8/19/2017.
@@ -7,6 +8,7 @@ public class QuickSortPivotHalfHalf {
         int[] numbers = {9, 7, 5, 11, 12, 2, 14, 3, 10, 6};
         //               0  1  2  3   4   5   6  7  8   9
         sortNumbers(numbers);
+        System.out.println(Arrays.toString(numbers));
 
         for (int i = 0; i < numbers.length; i++) {
             System.out.print(numbers[i] + ", ");
