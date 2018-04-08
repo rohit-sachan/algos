@@ -30,17 +30,36 @@ public class TrappingRainWater {
      * @param args
      */
     public static void main(String[] args) {
-
+        int arr[] = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+        System.out.println(getAmountOfWater(arr));
     }
 
     public static int getAmountOfWater(int[] walls){
 
-        int totalAmount, lowerBound, upperBound;
-        for (int wall : walls){
-            if (wall >0){
-
+        int t = 0, l, u;
+        for (int i = 0; i < walls.length; ) {
+            if(walls[i]>0){
+                l=walls[i];
+                int j = i+1;
+                for (; j < walls.length; ) {
+                    if(walls[j]<=l){
+                        j++;
+                    }else {
+                        break;
+                    }
+                }
+                t=t + calculateWater(i,j, walls);
+                i=j;
+            }else{
+                i++;
             }
         }
+        return t;
+    }
+
+    private static int calculateWater(int i, int j, int[] walls) {
+        System.out.println("Calculating between "+ i + " & " + j);
+        return 0;
     }
 
 }
